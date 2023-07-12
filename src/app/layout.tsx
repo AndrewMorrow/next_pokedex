@@ -2,6 +2,9 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import MyThemeProvider from "@/theme";
 // import { CssBaseline } from "@mui/material";
+import NavBar from "@/components/NavBar";
+import { Container } from "@mui/material";
+import MainContainer from "@/components/MainContainer";
 
 export const metadata = {
   title: "Create Next App",
@@ -23,7 +26,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <MyThemeProvider>
-        <body className={roboto.className}>{children}</body>
+        <body className={roboto.className}>
+          <header>
+            <NavBar />
+          </header>
+          <main>
+            <MainContainer>{children}</MainContainer>
+          </main>
+        </body>
       </MyThemeProvider>
     </html>
   );

@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -15,12 +16,14 @@ import AdbIcon from "@mui/icons-material/Adb";
 import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
 import Image from "next/image";
 import rowlet from "../assets/images/rowlet.png";
-import { Autocomplete, TextField } from "@mui/material";
+import { Autocomplete, TextField, ThemeProvider } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Dashboard", "Pokedex"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
+  const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -44,7 +47,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "darkprimary.main" }}>
+    <AppBar position="static" sx={{ backgroundColor: "darkprimary.main", mb: "5rem" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <CatchingPokemonIcon
@@ -68,29 +71,6 @@ function ResponsiveAppBar() {
             NextDex
           </Typography>
 
-          <Box sx={{ display: "flex", width: "25ch" }}>
-            <Autocomplete
-              id="free-solo-demo"
-              freeSolo
-              options={["hello"].map((option) => option)}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Search Pokemon"
-                  variant="standard"
-                  
-                  sx={{
-                    width: "25ch",
-                    borderColor: "white",
-                    color: "white",
-                    "& .MuiInputBase-input": {
-                      color: "white",
-                    },
-                  }}
-                />
-              )}
-            />
-          </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
