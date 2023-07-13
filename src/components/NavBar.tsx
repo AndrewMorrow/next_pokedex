@@ -47,7 +47,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "darkprimary.main", mb: "5rem" }}>
+    <AppBar position="static" sx={{ backgroundColor: "darkprimary.main", mb: "3rem" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <CatchingPokemonIcon

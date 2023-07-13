@@ -5,15 +5,15 @@ import { red } from "@mui/material/colors";
 import { ReactNode } from "react";
 import { CssBaseline } from "@mui/material";
 
-// declare module "@mui/material/styles" {
-//   interface Palette {
-//     darkprimary: Palette["primary"];
-//   }
+declare module "@mui/material/styles" {
+  interface Palette {
+    darkPrimary: Palette["primary"];
+  }
 
-//   interface PaletteOptions {
-//     darkprimary: PaletteOptions["primary"];
-//   }
-// }
+  interface PaletteOptions {
+    darkPrimary: PaletteOptions["primary"];
+  }
+}
 
 export const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -25,15 +25,17 @@ export const roboto = Roboto({
 // Create a theme instance.
 const theme = createTheme({
   palette: {
-    primary: {
+    darkPrimary: {
       main: "#1f2937",
     },
+    primary:{
+      main: "#1076BD",
+    }
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
   },
 });
-
 
 const MyThemeProvider = ({ children }: { children: ReactNode }) => {
   return (
